@@ -18,7 +18,7 @@ import com.koreait.board.dto.PostTestRequestDto;
 import com.koreait.board.dto.ResponseDto;
 
 // ?? ???? REST API? ???? Controller? ?? ? ? ?? 
-// Controller = react? Route? ?? 
+// Controller = react? Route? ?? ?? 
 @RestController
 //  ?? ???? ?? Request URL ???? ????? ?? 
 @RequestMapping("apis")
@@ -46,18 +46,18 @@ public class MainController {
 //	PathVariable(path): GET/DELETE ???? ??? ? ?? 
 //						URL Path? ???????? ???? ??? ??? ??? ? ?? ? 
 	@GetMapping("/variable/{data}")
-	public String getVariable(@PathVariable("data") String dataa) {
+	public ResponseDto<String> getVariable(@PathVariable("data") String dataa) {
 
-		String result = mainService.getVariable(dataa);
+		ResponseDto<String> result = mainService.getVariable(dataa);
 		return result;
 	}
 	
 	
 //	HTTP 메서드 중 POST 방식의 요청에 대한 처리를 저장할 때 사용 
 	@PostMapping("/")
-	public String postMain() {
+	public ResponseDto<String> postMain() {
 
-		String result = mainService.postMain();
+		ResponseDto<String> result = mainService.postMain();
 		return result;
 	}
 	
@@ -65,9 +65,9 @@ public class MainController {
 //	@ RequestBody : POST/PATCH ???? ?? ?? 
 //					?????? ?? request body? ???? ??? ? ? ?? ??  
 	@PostMapping("/requestBody")
-	public String postRequestBody(@RequestBody String data) {
+	public ResponseDto<String> postRequestBody(@RequestBody String data) {
 		
-		String result = mainService.postRequestBody(data);
+		ResponseDto<String> result = mainService.postRequestBody(data);
 
 		return result; 
 	}
@@ -75,29 +75,29 @@ public class MainController {
 	
 //	HTTP 메서드 중 PATCH 방식의 요청에 대한 처리를 지정할 때 사용 
 	@PatchMapping("/")
-	public String patchMain() {
-		String result = mainService.patchMain();
+	public ResponseDto<String> patchMain() {
+		ResponseDto<String> result = mainService.patchMain();
 		return result;
 	}
 	
 //	Http 메서드 중 DELETE 방식의 요청에 대한 처리를 지정 할 떄 사용
 	@DeleteMapping("/")
-	public String deleteMain() {
-		String result = mainService.deleteMain();
+	public ResponseDto<String> deleteMain() {
+		ResponseDto<String> result = mainService.deleteMain();
 		return result;
 	}
 	
 	//	request body ?? response body? ??? ?? ?? Dto? ???? ?? ?? ???? 
 	@PostMapping("/test")
-	public String postTest(@Valid @RequestBody PostTestRequestDto requestDtoBody) {
-		String result = mainService.postTest(requestDtoBody);
+	public ResponseDto<String> postTest(@Valid @RequestBody PostTestRequestDto requestDtoBody) {
+		ResponseDto<String> result = mainService.postTest(requestDtoBody);
 		return result;
 	}
 	
 	@GetMapping("/test")
-	public GetTestResponseDto getTest(){
+	public ResponseDto<GetTestResponseDto> getTest(){
 
-		GetTestResponseDto result = mainService.getTest();
+		ResponseDto<GetTestResponseDto> result = mainService.getTest();
 		return result;
 	}
 }
