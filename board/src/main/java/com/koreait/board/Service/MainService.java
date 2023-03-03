@@ -8,6 +8,8 @@ import com.koreait.board.dto.ResponseDto;
 
 
 // # Service 
+
+// ^Service는 위에서 언급했듯이 Repository에서 얻어온 정보를 바탕으로 자바 문법을 이용하여 가공 후 다시 Controller에게 정보를 보내는 곳입니다.
 // ? 실제 비즈니스 로직을 담당하는 레이어 
 // ? 일반적인 연산작업
 // ? Controller로 사용자의 입력을 받아오면 해당기능을 진행하기 위해 
@@ -15,6 +17,9 @@ import com.koreait.board.dto.ResponseDto;
 // ? Service에서 Controller로 넘겨준디 
 @Service
 public class MainService {
+    // // # Service 
+
+// ^Service는 위에서 언급했듯이 Repository에서 얻어온 정보를 바탕으로 자바 문법을 이용하여 가공 후 다시 Controller에게 정보를 보내는 곳입니다.
 
     
 

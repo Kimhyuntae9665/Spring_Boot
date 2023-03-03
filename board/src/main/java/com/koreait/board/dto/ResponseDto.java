@@ -24,7 +24,7 @@ public class ResponseDto<D> {
 
 
 
-    //# 성골시에 대한 인스턴스를 생성해주는 static 생성자 
+    //# 성공시에 대한 인스턴스를 생성해주는 static 생성자 
     // ? <D> Response <D> : 먼저 오는 <D>는 해당 메서드에서 독립적으로 사용할 제너릭을 지칭
     // ? 뒤에 오는 <D>는 ResponseDto 클래스에서 타입에 필요로 하는 제너릭을 지칭 
     public static <D> ResponseDto<D> setSuccess(String message,D data){
