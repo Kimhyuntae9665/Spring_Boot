@@ -31,7 +31,7 @@ public class MainService {
     public ResponseDto<String> getMain(){
 
         // ^ Example_Entity(인스턴스)를 ExampleRepository(데이터베이스)에 집어넣는 과정 
-        Example_Entity example_Entity = new Example_Entity(1,"Hello",100);
+        Example_Entity example_Entity = Example_Entity.builder().comment("Hello").number(10).build();
         exampleRespository.save(example_Entity);
         // ^ 실제 Mysql 데이터베이스에 데이터가 들어가 있다 
 
@@ -45,8 +45,11 @@ public class MainService {
 
     // ? 자바에서 자바를 호출 하는 것 
     public ResponseDto<String> getVariable(String dataa){
-        String data = "You input data is "  + dataa;
-        ResponseDto<String> result = ResponseDto.setSuccess("sucess", data);
+        
+        Example_Entity example_Entity  = exampleRespository.findByComment(dataa);
+        String string = example_Entity.toString();
+
+        ResponseDto<String> result = ResponseDto.setSuccess("sucess", string);
         return result;
     }
 
